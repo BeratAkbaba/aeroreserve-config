@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+          routes:
+            - id: (SERVICE-NAME)-route
+              uri: lb://(SERVICE-NAME)
+              predicates:
+                - Path=/api/(SERVICE-PATH)/**
+              filters:
+                - RewritePath=/api/(SERVICE-PATH)/(?<segment>.*), /(SERVICE-PATH)/$\{segment}
+
+            - id: (SERVICE-NAME)-route
+              uri: lb://(SERVICE-NAME)
+              predicates:
+                - Path=/api/(SERVICE-PATH)/**
+              filters:
+                - RewritePath=/api/(SERVICE-PATH)/(?<segment>.*), /(SERVICE-PATH)/$\{segment}
