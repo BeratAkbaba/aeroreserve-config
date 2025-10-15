@@ -8,18 +8,17 @@ spring:
         webflux:
           discovery:
             locator:
-              enabled: true
+              enabled: false
           routes:
-            - id: (SERVICE-NAME)-route
-              uri: lb://(SERVICE-NAME)
+            - id: user-service-route
+              uri: lb://user-service
               predicates:
-                - Path=/api/(SERVICE-PATH)/**
+                - Path=/api/users/**
               filters:
-                - RewritePath=/api/(SERVICE-PATH)/(?<segment>.*), /(SERVICE-PATH)/$\{segment}
-
-            - id: (SERVICE-NAME)-route
-              uri: lb://(SERVICE-NAME)
-              predicates:
-                - Path=/api/(SERVICE-PATH)/**
-              filters:
-                - RewritePath=/api/(SERVICE-PATH)/(?<segment>.*), /(SERVICE-PATH)/$\{segment}
+                - StripPrefix=2
+            - id: flight-search-route
+                    uri: lb://flight-search-service
+                    predicates:
+                      - Path=/api/flights/**
+                    filters:
+                      - StripPrefix=2
