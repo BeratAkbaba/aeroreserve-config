@@ -2,7 +2,7 @@ server:
   port: 8082 
 
 exchangerateapi:
-  api-key: https://v6.exchangerate-api.com/v6/be5ab00725e9ab41575bb652/latest/USD
+  api-key: be5ab00725e9ab41575bb652
 
 app:
   base-currency: "TRY"
