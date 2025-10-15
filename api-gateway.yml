@@ -17,8 +17,8 @@ spring:
               filters:
                 - StripPrefix=2
             - id: flight-search-route
-                    uri: lb://flight-search-service
-                    predicates:
-                      - Path=/api/flights/**
-                    filters:
-                      - StripPrefix=2
+              uri: lb://flight-search-service
+              predicates:
+                - Path=/api/flights/**
+              filters:
+                - StripPrefix=2
