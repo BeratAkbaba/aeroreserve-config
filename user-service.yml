@@ -16,6 +16,3 @@ spring:
     resources:
       add-mappings: false
       
-exchange-rates:
-  usd-to-arp: 41.50
-  eur-to-arp: 44.00
