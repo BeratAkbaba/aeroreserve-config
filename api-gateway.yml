@@ -4,27 +4,30 @@ server:
 spring:
   cloud:
     gateway:
-      server:
-        webflux:
-          discovery:
-            locator:
-              enabled: false
-          routes:
-            - id: user-service-route
-              uri: lb://user-service
-              predicates:
-                - Path=/api/users/**
-              filters:
-                - StripPrefix=2
-            - id: flight-search-route
-              uri: lb://flight-search-service
-              predicates:
-                - Path=/api/flights/**
-              filters:
-                - StripPrefix=2
-            - id: currency-exchange-route
-              uri: lb://currency-exchange-service
-              predicates:
-                - Path=/api/exchange/**
-              filters:
-                - StripPrefix=2
+      # Keşif ayarları doğrudan gateway altındadır
+      discovery:
+        locator:
+          enabled: false
+          
+      # Yönlendirme kuralları (routes) doğrudan gateway altındadır
+      routes:
+        - id: user-service-route
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - StripPrefix=2
+
+        - id: flight-search-route
+          uri: lb://flight-search-service
+          predicates:
+            - Path=/api/flights/**
+          filters:
+            - StripPrefix=2
+
+        - id: currency-exchange-route
+          uri: lb://currency-exchange-service
+          predicates:
+            - Path=/api/exchange/**
+          filters:
+            - StripPrefix=2
