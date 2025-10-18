@@ -4,14 +4,11 @@ server:
 spring:
   cloud:
     gateway:
-      # 'server.webflux' katmanı eklendi
       server:
         webflux:
           discovery:
             locator:
               enabled: false
-          
-      # Yönlendirme kuralları (routes) doğrudan gateway altındadır
           routes:
             - id: user-service-route
               uri: lb://user-service
