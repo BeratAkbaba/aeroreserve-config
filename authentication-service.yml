@@ -1,7 +1,6 @@
 server:
   port: 9000 
 
-
 jwt:
   secret: "BuCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokUzunVeGuvenliBirAnahtarOlmalidir"
   expiration-ms: 86400000 
