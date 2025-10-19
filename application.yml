@@ -2,6 +2,12 @@ jwt:
   secret: "BuCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokCokUzunVeGuvenliBirAnahtarOlmalidir"
   expiration-ms: 86400000 
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh, health, info"
+
 eureka:
   client:
     service-url:
