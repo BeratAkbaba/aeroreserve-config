@@ -38,7 +38,7 @@ spring:
               filters:
                 - StripPrefix=1
 
-              id: user-service-swagger
+            - id: user-service-swagger
               uri: lb://user-service
               predicates:
                 - Path=/api/users/v3/api-docs
