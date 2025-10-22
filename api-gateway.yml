@@ -4,8 +4,6 @@ server:
 spring:
   cloud:
     gateway:
-      default-filters:
-        - TokenRelay
       server:
         webflux:
           discovery:
@@ -18,11 +16,6 @@ spring:
                 - Path=/api/users/**
               filters:
                 - StripPrefix=1
-                - name: RewriteRequestHeader
-                  args:
-                    name: Authorization
-                    regexp: "^(.*)$"
-                    replacement: "$1"
     
             - id: flight-search-route
               uri: lb://flight-search-service
