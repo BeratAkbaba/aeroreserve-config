@@ -4,6 +4,8 @@ server:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       server:
         webflux:
           discovery:
